@@ -18,7 +18,10 @@ class TestAdmin(Base):
         ad_home = AdHomePage(driver)
         ad_home.click_coupon()
         ad_cplist = AdCouponListPage(driver)
-        ad_cplist.click_new()
         ad_cpnew = AdCouponNewPage(driver)
-        ad_cpnew.enter_values()
+        for i in range(1, 3):
+            ad_cplist.click_new()
+            time.sleep(2)
+            ad_cpnew.add_allitemcoupon(i)
+            time.sleep(2)
         time.sleep(15)
